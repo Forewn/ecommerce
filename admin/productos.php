@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuevo Producto</title>
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/sweetalert2.css">
 </head>
 <body>
     <?php include "./modulos/navbar.php"; ?>
@@ -16,18 +16,24 @@
             <input type="text" name="nombre" required class="form-control"><br>
             <label for="" class="form-label">Descripcion</label>
                 <textarea name="descripcion" id="descripcion" cols="30" rows="10" required class="form-control" style="height:20px;"></textarea><br>
-
-            <label for="" class="form-label">Categoria</label>
-            <select name="categoria" id="categoria" required class="form-select"><br>
-                <?php
-                    require "../php/conn.php";
-                    $sql = "SELECT * FROM categorias;";
-                    $result = $conn->query($sql);
-                    while($row = $result->fetch_assoc()){
-                        echo "<option value=".$row['id_categoria'].">".$row['categoria']."</option>";
-                    }
-                ?>
-            </select><br>
+            <div class="row">
+                <div class="col-12 col-lg-10">
+                    <label for="" class="form-label">Categoria</label>
+                    <select name="categoria" id="categoria" required class="form-select"><br>
+                        <?php
+                            require "../php/conn.php";
+                            $sql = "SELECT * FROM categorias;";
+                            $result = $conn->query($sql);
+                            while($row = $result->fetch_assoc()){
+                                echo "<option value=".$row['id_categoria'].">".$row['categoria']."</option>";
+                            }
+                        ?>
+                    </select><br>
+                </div>
+                <div class="col-12 col-lg-2 text-center">
+                    <input type="button" class="btn btn-outline-success" id="categoriaBtn"  value="Nueva Categoria" style="margin-top:30px;">
+                </div>
+            </div>
             <label for="" class="form-label">Precio</label>
             <input type="number" step="0.01" name="precio" required class="form-control"><br>
             <label for="" class="form-label">Foto producto</label>
@@ -35,6 +41,7 @@
             <center><input type="submit" value="Enviar" class="btn btn-outline-success"></center>
         </div>
     </form>
-    <script src="../js/bootstrap.min.js"></script>
+    <script src="./js/categorias.js"></script>
+    <script src="./js/sweetalert2.min.js"></script>
 </body>
 </html>

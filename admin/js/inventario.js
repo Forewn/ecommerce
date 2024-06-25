@@ -38,7 +38,15 @@ function buildTable(productos){
             string += "<td>"+producto.categoria+"</td>";
             string += "<td>"+producto.cantidad+"</td>";
             string += "<td>"+`<button class='btn btn-outline-info' onclick='openAlert(${producto.codigo}, "${producto.foto}")'>a</button>`+"</td>";
-            string += "<td>"+"</td>";
+            string += "<td>"+`
+            <div class='row'>
+                <div class='col-12 col-lg-5'>
+                    <button class='btn btn-outline-success'>U</button>
+                </div>
+                <div class='col-12 col-lg-5'>
+                    <button class='btn btn-outline-warning'>D</button>
+                </div>
+            </div>` +"</td>";
             string+= "</tr>";
         });
     }

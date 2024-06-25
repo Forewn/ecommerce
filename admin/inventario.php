@@ -19,7 +19,7 @@
                 </div>
             </div>
         </div>
-        <table class="table mt-2">
+        <table class="table mt-2 text-center">
             <thead>
                 <tr>
                     <th>Codigo</th>
@@ -45,7 +45,15 @@
                         echo "<td>".$producto['precio']."</td>";
                         echo "<td>".$producto['categoria']."</td>";
                         echo "<td>".$producto['cantidad']."</td>";
-                        echo "<td><button class='btn btn-outline-info' onclick='openAlert({$producto['codigo_producto']}, \"{$producto['foto_producto']}\")'>a</button></td>";
+                        echo "<td><button class='btn btn-outline-info' onclick='openAlert({$producto['codigo_producto']}, \"{$producto['foto_producto']}\")'>Ver</button></td>";
+                        echo "<td><div class='row'>
+                        <div class='col-12 col-lg-5'>
+                            <button class='btn btn-outline-success'>U</button>
+                        </div>
+                        <div class='col-12 col-lg-5'>
+                        <button class='btn btn-outline-warning'>D</button>
+                        </div>
+                        </div></td>";
                         echo "</tr>";
                     }
                 ?>

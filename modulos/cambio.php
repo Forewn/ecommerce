@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <link rel="stylesheet" href="css/icomoon.css">
 
 <div class="py-1 bg-black" style="color:white;font-size:11px;text-transform: uppercase;

@@ -17,13 +17,13 @@
             $result = $this->checkIfExists($conn);
             if($result->num_rows == 0){
                 $sql = "INSERT INTO usuarios(Cedula, Nombre, Apellido, Usuario, Email, Contrasena, Ultima_conexion, id_cargo) 
-                VALUES('{$this->cedula}', '{$this->nombre}', '{$this->apellido}', '{$this->usuario}', '{$this->email}', '{$this->password}', '".date("Y-m-d H:i:s")."', '1')";
+                VALUES('{$this->cedula}', '{$this->nombre}', '{$this->apellido}', '{$this->usuario}', '{$this->email}', '{$this->password}', '".date("Y-m-d H:i:s")."', '0')";
                 if($conn->query($sql)){
-                    header("Location: ../money.html");
+                    header("Location: ../admin/index.php");
                 }
             }
             else{
-                header("Location: ../money.html");
+                header("Location: ../admin/index.php");
             }
             }
             
@@ -33,20 +33,32 @@
             }
     
             function login(){
-                require "./conn.php";
-                $result = $this->checkIfExists($conn);
-                if($result){
-                    $usuario = $result->fetch_assoc();
-                    if(password_verify($this->password, $usuario['Contrasena'])){
-                        header("Location: ../money.html");
-                    }
-                    else{
-                        echo "Contrasena incorrecta";
-                    }
+                if(isset($_SESSION['usuario'])){
+                    header("Location: ../admin/home.php");
                 }
                 else{
-                    echo "Usuario no existe";
+                    require "./conn.php";
+                    $result = $this->checkIfExists($conn);
+                    if($result){
+                        $usuario = $result->fetch_assoc();
+                        if(password_verify($this->password, $usuario['Contrasena'])){
+                            session_start();
+                            $_SESSION['usuario'] = $this->usuario;
+                            // if($usuario['id_cargo'] == 1){
+                                header("Location: ../admin/home.php");
+                            // }
+                            // else{
+                            //     // en caso de ser cliente
+                            //     header('Location: ../index.php');
+                            // }
+                        }
+                        else{
+                            echo "Contrasena incorrecta";
+                        }
+                    }
+                    else{
+                        echo "Usuario no existe";
+                    }
                 }
             }
-
         }

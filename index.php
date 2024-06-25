@@ -84,8 +84,8 @@
           </div>
         </div>   		
     	</div>
-    	<div class="container">
-    		<div class="row">
+		<div class='container'>
+    				<div class='row'>
 				<?php
 					include "./php/conn.php";
 					$sql = "SELECT a.*, c.categoria FROM productos	a
@@ -94,10 +94,10 @@
 					WHERE a.top = 1 AND b.cantidad > 0;";
 					$productos = $conn->query($sql);
 					while($producto = $productos->fetch_assoc()){
-						echo "
+						echo "	
 						<div class='col-sm-12 col-md-6 col-lg-3 ftco-animate d-flex'>
 							<div class='product d-flex flex-column'>
-								<a href='#' class='img-prod'><img class='img-fluid' src='".$producto['foto_producto']."' alt='Colorlib Template'>
+								<a href='./product-single.php?producto={$producto['codigo_producto']}' class='img-prod'><img class='img-fluid' src='".$producto['foto_producto']."' alt='Colorlib Template'>
 									<div class='overlay'></div>
 								</a>
 								<div class='text py-3 pb-4 px-3'>
@@ -120,14 +120,14 @@
 										<p class='price'><span class='precio'>\${$producto['precio']}</span></p>
 									</div>
 									<p class='bottom-area d-flex px-3'>
-										<a href='#' class='add-to-cart text-center py-2 mr-1'><span>Add to cart <i class='ion-ios-add ml-1'></i></span></a>
-										<a href='#' class='buy-now text-center py-2'>Buy now<span><i class='ion-ios-cart ml-1'></i></span></a>
+										<a onclick='addCart(".$producto['codigo_producto'].")' class='add-to-cart text-center py-2 mr-1'><span>Añadir al carrito <i class='ion-ios-add ml-1'></i></span></a>
 									</p>
 								</div>
 							</div>
 						</div>";
 					}
 				?>
+				
     			<!-- <div class="col-sm-12 col-md-6 col-lg-3 ftco-animate d-flex">
     				<div class="product d-flex flex-column">
     					<a href="#" class="img-prod"><img class="img-fluid" src="images/product-2.png" alt="Colorlib Template">
@@ -160,8 +160,9 @@
     					</div>
     				</div>
     			</div> -->
-    		</div>
-    	</div>
+				</div>
+			</div>
+		</div>
     </section>
 
 	<section class="ftco-section ftco-no-pt ftco-no-pb">
@@ -233,131 +234,6 @@
     			</div>
     		</div>
     	</div>
-    </section>
-
-    <section class="ftco-section testimony-section">
-      <div class="container">
-        <div class="row">
-        	<div class="col-lg-5">
-        		<div class="services-flow">
-        			<div class="services-2 p-4 d-flex ftco-animate">
-        				<div class="icon">
-        					<span class="flaticon-bag"></span>
-        				</div>
-        				<div class="text">
-	        				<h3>Envio Grautito</h3>
-	        				<p class="mb-0">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi dolores quos aspernatur, asperiores totam sed placeat, cumque tempore est corporis quas dolorum magnam fugiat quaerat ipsa alias, veniam optio architecto?</p>
-        				</div>
-        			</div>
-        			<div class="services-2 p-4 d-flex ftco-animate">
-        				<div class="icon">
-        					<span class="flaticon-heart-box"></span>
-        				</div>
-        				<div class="text">
-	        				<h3>Productos Categorizados</h3>
-	        				<p class="mb-0">Personalice su catalogo de productos segun sus categorias</p>
-	        			</div>
-        			</div>
-        			<div class="services-2 p-4 d-flex ftco-animate">
-        				<div class="icon">
-        					<span class="flaticon-payment-security"></span>
-        				</div>
-        				<div class="text">
-	        				<h3>Soporte personal</h3>
-	        				<p class="mb-0">Arroz con leche</p>
-	        			</div>
-        			</div>
-        			<div class="services-2 p-4 d-flex ftco-animate">
-        				<div class="icon">
-        					<span class="flaticon-customer-service"></span>
-        				</div>
-        				<div class="text">
-	        				<h3>All Day Support</h3>
-	        				<p class="mb-0">Separated they live in. A small river named Duden flows</p>
-	        			</div>
-        			</div>
-        		</div>
-        	</div>
-          <div class="col-lg-7">
-          	<div class="heading-section ftco-animate mb-5">
-	            <h2 class="mb-4">Our satisfied customer says</h2>
-	            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in</p>
-	          </div>
-            <div class="carousel-testimony owl-carousel">
-              <div class="item">
-                <div class="testimony-wrap">
-                  <div class="user-img mb-4" style="background-image: url(images/person_1.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text">
-                    <p class="mb-4 pl-4 line">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Garreth Smith</p>
-                    <span class="position">Marketing Manager</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap">
-                  <div class="user-img mb-4" style="background-image: url(images/person_2.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text">
-                    <p class="mb-4 pl-4 line">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Garreth Smith</p>
-                    <span class="position">Interface Designer</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap">
-                  <div class="user-img mb-4" style="background-image: url(images/person_3.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text">
-                    <p class="mb-4 pl-4 line">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Garreth Smith</p>
-                    <span class="position">UI Designer</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap">
-                  <div class="user-img mb-4" style="background-image: url(images/person_1.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text">
-                    <p class="mb-4 pl-4 line">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Garreth Smith</p>
-                    <span class="position">Web Developer</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap">
-                  <div class="user-img mb-4" style="background-image: url(images/person_1.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text">
-                    <p class="mb-4 pl-4 line">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Garreth Smith</p>
-                    <span class="position">System Analyst</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
 
     <section class="ftco-gallery">
@@ -513,6 +389,6 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
-    
+  <script src="js/addCart.js"></script>
   </body>
 </html>

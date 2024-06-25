@@ -1,0 +1,39 @@
+#search-icon {
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 0px 5px 0px 0px;
+  }
+  
+  #s {
+    border-radius: 5px 0px 0px 5px;
+    border: 1px solid #ced4da;
+    width: 60vw;
+  }
+  
+  #thaps-search-button {
+    border-radius: 0px 5px 5px 0px;
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
+  #searchBar{
+    margin-top: 55px;
+  }
+
+  ::marker{
+    display: none;
+  }
+  
+  #searchResults{
+    background-color: whitesmoke;
+  }
+
+  .result{
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+  }
+
+.result:hover{
+  background-color: rgb(113, 129, 129);
+}
